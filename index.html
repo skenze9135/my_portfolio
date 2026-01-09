@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <canvas id="trailCanvas"></canvas>
+    <div class="cursor-follower"></div>
+    <header class="site-header">
+      <div class="container header-row">
+        <div class="brand">My Portfolio</div>
+        <nav class="main-nav" aria-label="Main navigation">
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="controls">
+          <button id="themeToggle" class="icon-btn" aria-label="Toggle theme">
+            <img id="themeIcon" src="images/1.png" alt="theme icon">
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero-section" id="about">
+        <div class="hero-content">
+          <div class="hero-text">
+            <h1>Hello! I'm TAPAS <br> A Digital Creator</h1>
+            <p class="lead">Crafting beautiful, functional web experiences that tell a story.</p>
+            <p>I'm passionate about building websites that are not just visually stunning but also intuitive and user-friendly. With a focus on clean design and modern techniques, I create digital solutions that help brands and individuals shine online.</p>
+            <p>Below you'll find some of my recent work and a short demo of my creative process.</p>
+          </div>
+          <div class="hero-media">
+            <div id="videoDiv">
+              <video id="video1" controls playsinline>
+                <source src="images/Screen Recording 2026-01-08 103541.mp4" type="video/mp4">
+                Your browser does not support HTML video.
+              </video>
+            </div>
+            <div class="video-controls">
+              <button id="playPauseBtn" onclick="playPause()">▶ Play</button>
+              <button id="bigBtn" onclick="makeBig()">🔍 Big</button>
+              <button id="smallBtn" onclick="makeSmall()">🔍 Small</button>
+              <button id="normalBtn" class="active" onclick="makeNormal()">⊖ Normal</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="projects-section" id="work">
+        <div class="section-inner">
+          <h2>Featured Projects</h2>
+          <p class="muted">A curated selection of my most recent work — showcasing design and functionality</p>
+          <div class="grid">
+            <div class="grid-wrapper">
+              <article class="card">
+                <img src="images/1.png" alt="project-1">
+                <h3>Web Design System</h3>
+                <p>Built a comprehensive design system with reusable components, comprehensive documentation, and accessible typography standards for seamless team collaboration.</p>
+              </article>
+              <article class="card">
+                <img src="images/1.png" alt="project-2">
+                <h3>E-Commerce Platform</h3>
+                <p>Developed a responsive, high-performance e-commerce platform with real-time inventory management, smooth checkout flow, and mobile-first design approach.</p>
+              </article>
+              <article class="card">
+                <img src="images/1.png" alt="project-3">
+                <h3>Analytics Dashboard</h3>
+                <p>Created an intuitive analytics dashboard with interactive data visualizations, real-time metrics, and customizable widgets for business intelligence insights.</p>
+              </article>
+              <article class="card">
+                <img src="images/1.png" alt="project-4">
+                <h3>Mobile App Interface</h3>
+                <p>Designed and built a native mobile application with elegant UI, smooth animations, offline functionality, and seamless user experience across all devices.</p>
+              </article>
+              <article class="card">
+                <img src="images/1.png" alt="project-1">
+                <h3>Web Design System</h3>
+                <p>Built a comprehensive design system with reusable components, comprehensive documentation, and accessible typography standards for seamless team collaboration.</p>
+              </article>
+              <article class="card">
+                <img src="images/1.png" alt="project-2">
+                <h3>E-Commerce Platform</h3>
+                <p>Developed a responsive, high-performance e-commerce platform with real-time inventory management, smooth checkout flow, and mobile-first design approach.</p>
+              </article>
+              <article class="card">
+                <img src="images/1.png" alt="project-3">
+                <h3>Analytics Dashboard</h3>
+                <p>Created an intuitive analytics dashboard with interactive data visualizations, real-time metrics, and customizable widgets for business intelligence insights.</p>
+              </article>
+              <article class="card">
+                <img src="images/1.png" alt="project-4">
+                <h3>Mobile App Interface</h3>
+                <p>Designed and built a native mobile application with elegant UI, smooth animations, offline functionality, and seamless user experience across all devices.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="more-section">
+        <div class="section-inner">
+          <h2>About My Process</h2>
+          <p>I believe in the power of thoughtful design combined with clean code. Every project I undertake begins with understanding the goals and challenges of my clients or users. From initial concept through final deployment, I focus on creating solutions that are not only beautiful but also performant and accessible to everyone.</p>
+          <p>My approach emphasizes collaboration, continuous learning, and attention to detail. Whether it's a simple website update or a complex web application, I bring the same level of care and professionalism to ensure the best possible outcome. I stay current with the latest web technologies and best practices to deliver cutting-edge solutions that stand the test of time.</p>
+        </div>
+      </section>
+
+      <section class="contact-section" id="contact">
+        <div class="section-inner">
+          <h2>Contact</h2>
+          <p class="muted">Want to work together? Send a note.</p>
+          <form class="contact-form" onsubmit="event.preventDefault(); alert('Thanks — form placeholder');">
+            <label for="contact-email">Email</label>
+            <input id="contact-email" type="email" placeholder="your@email.com" required>
+            <label for="contact-message">Message</label>
+            <textarea id="contact-message" placeholder="Write a short message" required></textarea>
+            <button type="submit">Send</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="section-inner">© <span id="year"></span> My Portfolio — Built with care.</div>
+    </footer>
+
+    <!-- Zooming Object -->
+    <div class="zoom-object" onclick="redirectToPage()" title="Click to explore">
+      <div class="zoom-inner">Explore</div>
+    </div>
+
+    <!-- Toggle Button for Zoom Object -->
+    <button class="zoom-toggle" onclick="toggleZoomAnimation()" title="Toggle movement">
+      ⏸
+    </button>
+
+    <script src="function.js"></script>
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
+
+
